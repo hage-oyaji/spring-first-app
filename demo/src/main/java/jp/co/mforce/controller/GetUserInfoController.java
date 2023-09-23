@@ -17,10 +17,11 @@ public class GetUserInfoController {
     @GetMapping("/userInfo")
     public Object getUserInfo(
     		final GetUserInfoResource request,
-			final BindingResult bindingResult) {
+    		final BindingResult bindingResult) {
 
 		return service.createUserInfo(
-				request,
-				bindingResult);
+					request,
+					bindingResult
+				);
     }
 }
