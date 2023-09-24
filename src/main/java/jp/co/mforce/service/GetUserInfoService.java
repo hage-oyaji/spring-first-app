@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jp.co.mforce.resource.GetUserInfoResource;
+import jp.co.mforce.resource.GetUserInfoResponseResource;
 
 @Service
 public class GetUserInfoService {
@@ -15,12 +16,14 @@ public class GetUserInfoService {
 			final GetUserInfoResource request,
 			final BindingResult bindingResult) throws JsonProcessingException {
 
-		GetUserInfoResource	getUserInfoResource = new GetUserInfoResource();
-		getUserInfoResource.setUserName(request.getUserName());
-		getUserInfoResource.setMailAddress(request.getMailAddress());
+		GetUserInfoResponseResource	getUserInfoResponseResource = new GetUserInfoResponseResource();
+		getUserInfoResponseResource.setUserName(request.getUserName());
+		getUserInfoResponseResource.setMailAddress(request.getMailAddress());
+		getUserInfoResponseResource.setAge(20);
+		getUserInfoResponseResource.setSex("man");
 
         ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(getUserInfoResource);
+        String json = mapper.writeValueAsString(getUserInfoResponseResource);
 
 		return (Object)json;
 	}
